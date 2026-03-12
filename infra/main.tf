@@ -1,13 +1,13 @@
 
 locals {
   appgw = {
-    gateway_ip_config   = "appgw-ip-config"
-    frontend_ip_config  = "appgw-frontend-ip"
-    frontend_port       = "http-port"
-    backend_pool        = "web-backend"
-    backend_settings    = "web-http-settings"
-    listener            = "http-listener"
-    routing_rule        = "http-routing-rule"
+    gateway_ip_config  = "appgw-ip-config"
+    frontend_ip_config = "appgw-frontend-ip"
+    frontend_port      = "http-port"
+    backend_pool       = "web-backend"
+    backend_settings   = "web-http-settings"
+    listener           = "http-listener"
+    routing_rule       = "http-routing-rule"
   }
 }
 
@@ -37,13 +37,13 @@ resource "azurerm_application_gateway" "appgw" {
     public_ip_address_id = azurerm_public_ip.appgw_publicip.id
   }
 
-backend_address_pool {
-  name = local.appgw.backend_pool
+  backend_address_pool {
+    name = local.appgw.backend_pool
 
-  backend_addresses {
-    ip_address = azurerm_network_interface.web_vm01.private_ip_address
+    backend_addresses {
+      ip_address = azurerm_network_interface.web_vm01.private_ip_address
+    }
   }
-}
 
   backend_http_settings {
     name                  = local.appgw.backend_settings

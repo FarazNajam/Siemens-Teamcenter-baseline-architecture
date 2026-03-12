@@ -6,7 +6,7 @@ variable "subnets" {
 }
 
 variable "appgw" {
- type = string 
+  type = string
 }
 
 variable "frontend_port" {
@@ -46,7 +46,7 @@ variable "vms" {
   type = map(object({
     vm_size = string
     subnet  = string
-    nic     = string 
+    nic     = string
   }))
 }
 
