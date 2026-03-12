@@ -47,7 +47,7 @@ vms = {
   }
 }
 
-key_vault_name = "t-aue-teamcenter-kv"
+keyvault_name = "t-aue-teamcenter-kv"
 
 sql_server_name = "t-aue-teamcenter-sqlserver"
 
