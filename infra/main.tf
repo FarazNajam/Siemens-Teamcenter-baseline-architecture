@@ -40,7 +40,7 @@ resource "azurerm_application_gateway" "appgw" {
   backend_address_pool {
     name = local.appgw.backend_pool
 
-    backend_addresses {
+    backend_address {
       ip_address = azurerm_network_interface.web_vm01.private_ip_address
     }
   }
