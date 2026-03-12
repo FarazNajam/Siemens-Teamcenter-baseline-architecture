@@ -7,5 +7,3 @@ crash.log
 # Terraform lock file
 .terraform.lock.hcl
 
-# Environment variables
-*.tfvars
