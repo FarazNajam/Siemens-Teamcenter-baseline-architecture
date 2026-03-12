@@ -54,7 +54,7 @@ variable "web_VM_size" {
   type = string
 }
 
-variable "key_vault_name" {
+variable "keyvault_name" {
   type = string
 }
 
