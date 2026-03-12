@@ -46,10 +46,6 @@ variable "vms" {
   }))
 }
 
-variable "web_VM_size" {
-  type = string
-}
-
 variable "keyvault_name" {
   type = string
 }
