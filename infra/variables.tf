@@ -33,10 +33,6 @@ variable "public_ip" {
   type = string
 }
 
-variable "nic" {
-  type = string
-}
-
 variable "ip_configuration" {
   type = string
 }
