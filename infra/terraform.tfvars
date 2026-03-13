@@ -32,7 +32,7 @@ subnets = {
 vms = {
   web_vm01 = {
     vm_size          = "Standard_B1s"
-    subnet           = "web_subnet"
+    subnet           = "web-subnet"
     nic              = "web-vm-nic"
     ip_configuration = "web-vm-ipconfig"
   }
