@@ -39,7 +39,7 @@ vms = {
 
   enterprise_vm01 = {
     vm_size          = "Standard_B1s"
-    subnet           = "enterprise_subnet"
+    subnet           = "enterprise-subnet"
     nic              = "enterprise-vm-nic"
     ip_configuration = "web-vm-ipconfig"
   }
