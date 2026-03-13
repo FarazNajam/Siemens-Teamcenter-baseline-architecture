@@ -19,7 +19,7 @@ resource "azurerm_linux_virtual_machine" "linux_VM" {
   size                = each.value.vm_size
   admin_username      = "adminuser"
   network_interface_ids = [
-    azurerm_network_interface.nic[each.value.nic].id,
+    azurerm_network_interface.nic[each.key].id,
   ]
 
   admin_ssh_key {
