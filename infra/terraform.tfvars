@@ -6,8 +6,6 @@ address_space = ["10.0.0.0/16"]
 
 public_ip = "t-aue-teamcenter-appgw_publicIP"
 
-ip_configuration = "internal-ip-config"
-
 appgw = "t-aue-teamcenter-appgw"
 
 frontend_port = 80
