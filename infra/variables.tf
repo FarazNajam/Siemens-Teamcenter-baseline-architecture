@@ -36,10 +36,10 @@ variable "public_ip" {
 variable "vms" {
   description = "vms in web/enterprise tiers"
   type = map(object({
-    vm_size           = string
-    subnet            = string
-    nic               = string
-    ip_configuration  = string
+    vm_size          = string
+    subnet           = string
+    nic              = string
+    ip_configuration = string
   }))
 }
 
