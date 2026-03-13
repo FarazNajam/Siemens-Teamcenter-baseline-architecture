@@ -11,19 +11,19 @@ appgw = "t-aue-teamcenter-appgw"
 frontend_port = 80
 
 subnets = {
-  appgw_subnet = {
+  appgw-subnet = {
     address_prefixes = ["10.0.1.0/24"]
   }
 
-  web_subnet = {
+  web-subnet = {
     address_prefixes = ["10.0.2.0/24"]
   }
 
-  enterprise_subnet = {
+  enterprise-subnet = {
     address_prefixes = ["10.0.3.0/24"]
   }
 
-  database_subnet = {
+  database-subnet = {
     address_prefixes = ["10.0.4.0/24"]
   }
 }
