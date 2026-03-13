@@ -33,10 +33,6 @@ variable "public_ip" {
   type = string
 }
 
-variable "ip_configuration" {
-  type = string
-}
-
 variable "vms" {
   description = "vms in web/enterprise tiers"
   type = map(object({
