@@ -59,14 +59,14 @@ resource "azurerm_application_gateway" "appgw" {
   }
 
   ssl_policy {
-  policy_type = "Predefined"
-  policy_name = "AppGwSslPolicy20220101"
+    policy_type = "Predefined"
+    policy_name = "AppGwSslPolicy20220101"
   }
 
   ssl_certificate {
-  name     = "appgw-cert"
-  data     = filebase64("cert.pfx")
-  password = var.cert_password
+    name     = "appgw-cert"
+    data     = filebase64("cert.pfx")
+    password = var.cert_password
   }
 
   request_routing_rule {
