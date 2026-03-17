@@ -10,6 +10,8 @@ appgw = "t-aue-teamcenter-appgw"
 
 frontend_port = 443
 
+cert_password = "Faraz123!"
+
 subnets = {
   appgw-subnet = {
     address_prefixes = ["10.0.1.0/24"]
