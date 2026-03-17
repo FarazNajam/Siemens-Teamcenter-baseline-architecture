@@ -3,11 +3,11 @@ locals {
   appgw = {
     gateway_ip_config  = "appgw-ip-config"
     frontend_ip_config = "appgw-frontend-ip"
-    frontend_port      = "http-port"
+    frontend_port      = "https-port"
     backend_pool       = "web-backend"
-    backend_settings   = "web-http-settings"
-    listener           = "http-listener"
-    routing_rule       = "http-routing-rule"
+    backend_settings   = "web-https-settings"
+    listener           = "https-listener"
+    routing_rule       = "https-routing-rule"
   }
 }
 
@@ -45,7 +45,7 @@ resource "azurerm_application_gateway" "appgw" {
   backend_http_settings {
     name                  = local.appgw.backend_settings
     cookie_based_affinity = "Disabled"
-    port                  = 80
+    port                  = 443
     protocol              = "Http"
     request_timeout       = 60
   }
@@ -54,7 +54,19 @@ resource "azurerm_application_gateway" "appgw" {
     name                           = local.appgw.listener
     frontend_ip_configuration_name = local.appgw.frontend_ip_config
     frontend_port_name             = local.appgw.frontend_port
-    protocol                       = "Http"
+    protocol                       = "Https"
+    ssl_certificate_name           = "appgw-cert"
+  }
+
+  ssl_policy {
+  policy_type = "Predefined"
+  policy_name = "AppGwSslPolicy20220101"
+  }
+
+  ssl_certificate {
+  name     = "appgw-cert"
+  data     = filebase64("cert.pfx")
+  password = var.cert_password
   }
 
   request_routing_rule {

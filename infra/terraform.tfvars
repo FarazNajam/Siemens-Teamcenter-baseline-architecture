@@ -8,7 +8,7 @@ public_ip = "t-aue-teamcenter-appgw_publicIP"
 
 appgw = "t-aue-teamcenter-appgw"
 
-frontend_port = 80
+frontend_port = 443
 
 subnets = {
   appgw-subnet = {
@@ -30,14 +30,14 @@ subnets = {
 
 
 vms = {
-  web_vm01 = {
+  web-vm01 = {
     vm_size          = "Standard_B1s"
     subnet           = "web-subnet"
     nic              = "web-vm-nic"
     ip_configuration = "web-vm-ipconfig"
   }
 
-  enterprise_vm01 = {
+  enterprise-vm01 = {
     vm_size          = "Standard_B1s"
     subnet           = "enterprise-subnet"
     nic              = "enterprise-vm-nic"
