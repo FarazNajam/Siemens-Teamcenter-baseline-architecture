@@ -39,3 +39,7 @@ resource "azurerm_linux_virtual_machine" "linux_VM" {
     version   = "latest"
   }
 }
+
+variable "cert_password" {
+  type = string
+}

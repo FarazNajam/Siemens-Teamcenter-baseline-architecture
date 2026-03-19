@@ -12,7 +12,6 @@ jobs:
   terraform:
     runs-on: ubuntu-latest
 
-    # Required for OIDC to Azure
     permissions:
       id-token: write
       contents: read
@@ -22,19 +21,20 @@ jobs:
         working-directory: infra
 
     env:
-      # Tell the AzureRM provider to authenticate using OIDC in CI
       ARM_USE_OIDC: true
       ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
       ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
       ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-      # Optional but often helpful for consistent non-interactive runs
+
       TF_IN_AUTOMATION: true
+
+      # 🔥 ADD THIS LINE (IMPORTANT)
+      TF_VAR_cert_password: ${{ secrets.CERT_PASSWORD }}
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Establish Azure context via OIDC (no az login needed)
       - name: Azure Login (OIDC)
         uses: azure/login@v1
         with:
@@ -60,5 +60,3 @@ jobs:
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main'
         run: terraform apply -auto-approve
-
-       #
