@@ -13,10 +13,6 @@ variable "frontend_port" {
   type = number
 }
 
-variable "cert_password" {
-  type = string
-}
-
 variable "vnet_name" {
   type = string
 }
