@@ -33,14 +33,14 @@ subnets = {
 
 vms = {
   web-vm01 = {
-    vm_size          = "Standard_B2s"
+    vm_size          = "Standard_D2s_v3"
     subnet           = "web-subnet"
     nic              = "web-vm-nic"
     ip_configuration = "web-vm-ipconfig"
   }
 
   enterprise-vm01 = {
-    vm_size          = "Standard_B2s"
+    vm_size          = "Standard_D2s_v3"
     subnet           = "enterprise-subnet"
     nic              = "enterprise-vm-nic"
     ip_configuration = "web-vm-ipconfig"
