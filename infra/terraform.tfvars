@@ -10,7 +10,7 @@ appgw = "t-aue-teamcenter-appgw"
 
 frontend_port = 443
 
-cert_password = "Faraz123!"
+cert_password = "Test1234!"
 
 subnets = {
   appgw-subnet = {

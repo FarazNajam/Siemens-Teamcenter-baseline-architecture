@@ -55,4 +55,6 @@ variable "sql_server_name" {
   type = string
 }
 
-
+variable "cert_password" {
+  type = string
+}
