@@ -8,7 +8,7 @@ resource "azurerm_network_interface" "nic" {
     name                          = each.value.ip_configuration
     subnet_id                     = azurerm_subnet.subnets[each.value.subnet].id
     private_ip_address_allocation = "Dynamic"
-    public_ip_address_id = azurerm_public_ip.vm_pip[each.key].id
+    public_ip_address_id          = azurerm_public_ip.vm_pip[each.key].id
   }
 }
 
@@ -20,7 +20,7 @@ resource "azurerm_linux_virtual_machine" "linux_VM" {
   size                = each.value.vm_size
   admin_username      = "adminuser"
   network_interface_ids = [
-  azurerm_network_interface.nic[each.key].id,
+    azurerm_network_interface.nic[each.key].id,
   ]
 
   admin_ssh_key {
@@ -46,7 +46,6 @@ resource "azurerm_public_ip" "vm_pip" {
   name                = "${each.key}-pip"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
-
   allocation_method   = "Static"
   sku                 = "Standard"
 }
