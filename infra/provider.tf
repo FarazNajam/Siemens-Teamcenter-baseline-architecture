@@ -5,6 +5,12 @@ terraform {
       version = "~> 3.0"
     }
   }
+  backend "azurerm" {
+    resource_group_name  = "TestStorageAccountTHlDr"
+    storage_account_name = "tststrgaccnthldr02"
+    container_name       = "tfstate"
+    key                  = "teamcenter.tfstate"
+  }
 }
 provider "azurerm" {
   features {}
